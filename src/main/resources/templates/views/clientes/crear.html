@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<header th:replace="plantilla/template :: header">
+
+</header>
+
+
+<div class="container">
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-white " th:text="${titulo}"></div>
+        <div class="card-body">
+            <form th:action="@{/views/clientes/save}" th:object="${cliente}" method="post">
+                <div class="form-group row">
+                    <input type="hidden" th:field="*{id}">
+                    <label for="nombres" class="col-md-2">Nombre</label>
+                    <input type="text" th:field="*{nombres}" class="form-control form-control-sm col-md-9" id="nombres"
+                           placeholder="Nombre" th:classappend="${#fields.hasErrors('nombres')} ? 'is-invalid' : ''">
+                    <small class="form-text text-danger"
+                           th:errors="*{nombres}"></small>
+
+                </div>
+                <div class="form-group row">
+                    <label for="apellidos" class="col-md-2">Apellido</label>
+                    <input type="text" th:field="*{apellidos}" class="form-control form-control-sm col-md-6"
+                           id="apellidos"
+                           placeholder="Apellido" th:classappend="${#fields.hasErrors('apellidos')} ? 'is-invalid' : ''">
+                    <div class="invalid-feedback"
+                           th:errors="*{apellidos}"></div>
+
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-md-2">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control form-control-sm col-md-6" id="email"
+                           placeholder="Email" th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''">
+                    <div class="invalid-feedback"
+                           th:errors="*{email}"></div>
+
+                </div>
+                <div class="form-group row">
+                    <label for="telefono" class="col-md-2">Teléfono</label>
+                    <input type="text" th:field="*{telefono}" class="form-control form-control-sm col-md-6"
+                           id="telefono"
+                           placeholder="Telefono" th:classappend="${#fields.hasErrors('telefono')} ? 'is-invalid' : ''">
+                    <div class="invalid-feedback"
+                           th:errors="*{telefono}"></div>
+
+                </div>
+                <div class="form-group row">
+                    <label for="ciudad" class="col-md-2">Ciudad</label>
+                    <select type="text" th:field="*{ciudad}" class="form-control form-control-sm col-md-6" id="ciudad"
+                            placeholder="Ciudad">
+                        <option th:each="ciudad:${ciudades}" th:value="${ciudad.id}"
+                                th:text="${ciudad.ciudad}"></option>
+
+                    </select>
+                    <div></div>
+                </div>
+                <div class="card-footer bg-dark">
+                    <input type="submit" class="btn btn-primary btn-sm" value="Guardar"/>
+                </div>
+
+
+            </form>
+        </div>
+        <div class="row">
+
+
+            <footer th:replace="plantilla/template :: footer">
+
+            </footer>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
