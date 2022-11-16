@@ -1,0 +1,11 @@
+com\example\springProject\SpringProjectApplication.class
+com\example\springProject\respository\CiudadRepository.class
+com\example\springProject\models\CiudadModel.class
+com\example\springProject\services\CiudadServiceImplement.class
+com\example\springProject\services\ICiudadService.class
+com\example\springProject\controller\IndexController.class
+com\example\springProject\respository\ClienteRepository.class
+com\example\springProject\services\ClienteServiceImplement.class
+com\example\springProject\controller\ClienteController.class
+com\example\springProject\models\ClienteModel.class
+com\example\springProject\services\IClienteService.class
